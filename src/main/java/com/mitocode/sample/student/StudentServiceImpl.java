@@ -40,6 +40,8 @@ public class StudentServiceImpl implements StudentService {
         }
         
         System.out.println("Cambio WS");
+        System.out.println("Cambio WS");
+        System.err.println("Cambio WS");
 
         if (studentDataAccessService.isEmailTaken(student.getEmail())) {
             throw new ApiRequestException(student.getEmail() + " is taken");
