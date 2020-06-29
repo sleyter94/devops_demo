@@ -35,9 +35,11 @@ public class StudentServiceImpl implements StudentService {
         UUID newStudentId = Optional.ofNullable(studentId)
                 .orElse(UUID.randomUUID());
 
-        // if (!emailValidator.test(student.getEmail())) {
-        //     throw new ApiRequestException(student.getEmail() + " is not valid");
-        // }
+        if (!emailValidator.test(student.getEmail())) {
+            throw new ApiRequestException(student.getEmail() + " is not valid");
+        }
+        
+        System.out.println("Cambio WS");
 
         if (studentDataAccessService.isEmailTaken(student.getEmail())) {
             throw new ApiRequestException(student.getEmail() + " is taken");
